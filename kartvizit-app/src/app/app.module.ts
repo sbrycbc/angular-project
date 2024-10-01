@@ -6,19 +6,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    AboutComponent
- 
+    AboutComponent,
+   
   ],
   imports: [
    BrowserModule,
-   AppRoutingModule
+   AppRoutingModule,
+   MatToolbarModule,
+
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent] 
 })
 export class AppModule { }
