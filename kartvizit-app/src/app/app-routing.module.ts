@@ -15,7 +15,9 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
-  }
+  },
+
+  { path: 'cards', loadChildren: () => import('./cards/cards.module').then(m => m.CardsModule) }
 ];
 
 
