@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -23,11 +24,16 @@ import {MatToolbarModule} from '@angular/material/toolbar';
   imports: [
    BrowserModule,
    AppRoutingModule,
+   HttpClientModule,
    MatToolbarModule,
 
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {
+      provide: 'apiUrl',
+      useValue: 'https://demo.limantech.com/cards/public/api'
+    }
   ],
   bootstrap: [AppComponent] 
 })
