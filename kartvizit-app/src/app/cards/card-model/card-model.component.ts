@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CardService } from '../../services/card.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-card-model',
@@ -15,7 +16,8 @@ export class CardModelComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<CardModelComponent>,
     private fb: FormBuilder,
-    private cardService: CardService
+    private cardService: CardService,
+    private _snackBar : MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -28,12 +30,15 @@ export class CardModelComponent implements OnInit {
    });
  }
 
- addCard():void {
+ addCard(): void {
   console.log(this.cardForm.value);
-  this.cardService.addCard(this.cardForm.value).subscribe(() => {
+  this.cardService.addCard(this.cardForm.value).subscribe((res: any) => { 
     this.cardForm.reset();
+    this._snackBar.open('Bravoo... Es ist hier::))', '', {
+      duration: 4000, 
+    });
     this.dialogRef.close();
   });
- }
-
 }
+}
+
