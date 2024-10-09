@@ -37,7 +37,7 @@ export class CardModelComponent implements OnInit {
     this._snackBar.open('Bravoo... Es ist hier::))', '', {
       duration: 4000, 
     });
-    this.dialogRef.close();
+    this.dialogRef.close(true);
   });
 }
 }
