@@ -10,9 +10,10 @@ export class SnackbarService {
     private _snackBar: MatSnackBar,
   ) { }
 
-  createSnackbar(message:string, duration : number = 4000):void {
+  createSnackbar(type: string, message: string, duration: number = 4000): void {
     this._snackBar.open(message, '', {
-      duration
+      duration,
+      panelClass:type
     });
   }
 }

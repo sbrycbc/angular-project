@@ -67,14 +67,14 @@ export class CardModelComponent implements OnInit {
   }
 
   getSuccess(message: string): void {
-    this.snackbarService.createSnackbar(message);
+    this.snackbarService.createSnackbar('success', message);
     this.cardService.getCards(); // Kartları yeniden yükler
     this.showSpinner = false;
     this.dialogRef.close(true); // Dialogu kapatır
   }
 
   getError(message: string): void {
-    this.snackbarService.createSnackbar(message);
+    this.snackbarService.createSnackbar('error', message);
     this.showSpinner = false;
   }
 }

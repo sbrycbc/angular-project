@@ -10,7 +10,6 @@ import {MatButtonModule} from '@angular/material/button';
 import { CardModelComponent } from './card-model/card-model.component';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
@@ -29,7 +28,6 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSnackBarModule,
     MatProgressBarModule,
 
   ]

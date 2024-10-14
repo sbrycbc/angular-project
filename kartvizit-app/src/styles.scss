@@ -15,3 +15,13 @@ main {
         color: #777;
     }
 }
+
+ .mat-mdc-snack-bar-container.success {
+  background-color: #198754; 
+  color: #fff; 
+}
+
+.mdc-snackbar .mat-mdc-snack-bar-container.error {
+  background-color: #dc3545; 
+  color: #fff;
+}
