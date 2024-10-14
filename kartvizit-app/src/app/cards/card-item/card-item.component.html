@@ -1,5 +1,5 @@
 <mat-card class="card-item">
-    <mat-card-header>
+  <mat-card-header (click)="openUpdateCardModal(cardItem)">
       <mat-card-title>{{cardItem.name || '-'}}</mat-card-title>
       <mat-card-subtitle>{{cardItem.title}}</mat-card-subtitle>
     </mat-card-header>
