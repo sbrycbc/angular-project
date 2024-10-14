@@ -13,6 +13,7 @@ import { Card } from '../../models/card';
 export class CardModelComponent implements OnInit {
 
   cardForm!: FormGroup;
+  showSpinner:boolean= false;
 
   constructor(
     private dialogRef: MatDialogRef<CardModelComponent>,
@@ -33,6 +34,7 @@ export class CardModelComponent implements OnInit {
  }
 
  addCard(): void {
+  this.showSpinner=true;
   console.log(this.cardForm.value);
   this.cardService.addCard(this.cardForm.value)
   .subscribe((res: any) => { 
@@ -40,22 +42,27 @@ export class CardModelComponent implements OnInit {
       duration: 4000, 
     });
     this.cardService.getCards();
+    this.showSpinner=false;
     this.dialogRef.close(true);
   });
 }
 
 updateCard(): void {
+  this.showSpinner=true;
   this.cardService.updateCard(this.cardForm.value, this.data.id)
     .subscribe((res: any) => {
       console.log(res);
       this._snackBar.open('Bravoo... Es ist bearbeitet::))', '', {
         duration: 4000,
       });
+      
       this.cardService.getCards();
+      this.showSpinner=false;
       this.dialogRef.close(true);
     });
 }
 deleteCard(): void {
+  this.showSpinner=true;
   this.cardService.deleteCard( this.data.id)
     .subscribe((res: any) => {
       console.log(res);
@@ -63,6 +70,7 @@ deleteCard(): void {
         duration: 4000,
       });
       this.cardService.getCards();
+      this.showSpinner=false;
       this.dialogRef.close(true);
     });
 }
