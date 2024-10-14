@@ -22,31 +22,18 @@ export class CardsComponent implements OnInit {
   
   constructor(
     public dialog:MatDialog,
-    private cardService: CardService ) { }
+    public cardService: CardService ) { }
 
   ngOnInit(): void { 
-    this.getCards();
+    this.cardService.getCards();
+  
   }
 
   openAddCardModel() {
-    const dialog =this.dialog.open(CardModelComponent, {
+    this.dialog.open(CardModelComponent, {
       width:'400px'
     });
-
-    dialog.afterClosed().subscribe(res => {
-      if(res){
-        this.getCards();
-      }
-      console.log(res);
-    });
   }
 
-  getCards(){
-    this.cardService.getCards()
-    .subscribe( (res: Card[]) => {
-      this.cards = res;
-    })
-  }
 }
-
 

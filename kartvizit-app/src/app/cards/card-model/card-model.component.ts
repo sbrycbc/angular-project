@@ -39,6 +39,7 @@ export class CardModelComponent implements OnInit {
     this._snackBar.open('Bravoo... Es ist hier::))', '', {
       duration: 4000, 
     });
+    this.cardService.getCards();
     this.dialogRef.close(true);
   });
 }
@@ -50,6 +51,7 @@ updateCard(): void {
       this._snackBar.open('Bravoo... Es ist bearbeitet::))', '', {
         duration: 4000,
       });
+      this.cardService.getCards();
       this.dialogRef.close(true);
     })
 }
