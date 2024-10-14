@@ -53,7 +53,18 @@ updateCard(): void {
       });
       this.cardService.getCards();
       this.dialogRef.close(true);
-    })
+    });
+}
+deleteCard(): void {
+  this.cardService.deleteCard( this.data.id)
+    .subscribe((res: any) => {
+      console.log(res);
+      this._snackBar.open('Bravoo... Es ist weg::))', '', {
+        duration: 4000,
+      });
+      this.cardService.getCards();
+      this.dialogRef.close(true);
+    });
 }
 }
 

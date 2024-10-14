@@ -19,11 +19,10 @@ getCards(): void {
     this.http.get<Card[]>(this.apiUrl + '/cards')
     .subscribe((res:Card[]) => {
       this.cards = res;
-    });
+  });
 }
 
-  // added new cards to
-
+  // added new cards 
 addCard(card: Card){
   return this.http.post(this.apiUrl + '/cards',card)
 }
@@ -31,6 +30,11 @@ addCard(card: Card){
   // update a card
 updateCard(card: Card, cardId:number){
   return this.http.put(this.apiUrl + '/cards/' + cardId, card);
+}
+
+ // delete a card
+ deleteCard(cardId: number) {
+  return this.http.delete(this.apiUrl + '/cards/' + cardId);
 }
 
 
