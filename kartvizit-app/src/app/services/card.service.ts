@@ -23,6 +23,9 @@ export class CardService {
 addCard(card: Card){
   return this.http.post(this.apiUrl + '/cards',card)
 }
+updateCard(card: Card, cardId:number){
+  return this.http.put(this.apiUrl + '/cards/' + cardId, card);
+}
 
 
 }

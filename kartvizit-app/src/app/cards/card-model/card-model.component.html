@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Neue Kart</h2>
+<h2 mat-dialog-title>{{data ? 'Karte Bearbeiten' : 'Neue Karte'}}</h2>
 <mat-dialog-content class="mat-typography">
   <form [formGroup]="cardForm">
     <mat-form-field class="example-full-width">
@@ -25,6 +25,6 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button (click)="addCard()">Added</button>
+  <button mat-button (click)="data ? updateCard() : addCard()">{{data ? 'Bearbeiten' : 'Added'}}</button>
 </mat-dialog-actions>
 
